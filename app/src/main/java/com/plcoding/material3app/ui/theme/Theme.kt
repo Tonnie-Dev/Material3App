@@ -71,7 +71,11 @@ fun Material3AppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Comp
     val colors = when {
         useDynamicColors && darkTheme -> dynamicDarkColorScheme(LocalContext.current)
         useDynamicColors && !darkTheme -> dynamicLightColorScheme(LocalContext.current)
+
+        //App in dark them but below Android 12
         darkTheme -> DarkColorPalette
+
+        //app not in dark theme and below Android 12
         else -> LightColorPalette
     }
 
